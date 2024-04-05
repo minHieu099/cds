@@ -1,4 +1,4 @@
-import { Document, Paragraph, AlignmentType, TextRun, Table, TableCell, TableRow, WidthType, BorderStyle,TabStopPosition, TabStopType, PositionalTabLeader } from "docx";
+import { Document, Paragraph, AlignmentType, TextRun, Table, TableCell, TableRow, WidthType, BorderStyle,TabStopPosition, TabStopType, PositionalTabLeader,PageBreak, } from "docx";
 import formatParagraph from "./formatParagraph";
 // const data = [
 //     {
@@ -272,6 +272,10 @@ let renderGbnTT = (data) => {
                         tabStops: dotTab,
                     }),
                     new Paragraph({
+                        children: [new PageBreak()],
+                    })
+                    ,
+                    new Paragraph({
                         children: [
                             new TextRun({
                                 text: "IV. NỘI DUNG BÀN GIAO TRỰC BAN MỚI THEO DÕI, GIẢI QUYẾT",
@@ -324,6 +328,17 @@ let renderGbnTT = (data) => {
                                                     }),
                                                 ],
                                             }),
+                                            new Paragraph({
+                                                alignment: AlignmentType.CENTER,
+                                                children: [
+                                                    new TextRun({
+                                                        text: data.truc_ban_moi_1,
+                                                        size: 28,
+                                                        bold: true,
+                                                        break:7
+                                                    }),
+                                                ],
+                                            }),
                                         ],
                                         borders: {
                                             top: { style: BorderStyle.NONE, size: 0, color: "FFFFFF" },
@@ -353,6 +368,17 @@ let renderGbnTT = (data) => {
                                                         size: 28,
                                                         bold: false,
                                                         italics: true,
+                                                    }),
+                                                ],
+                                            }),
+                                            new Paragraph({
+                                                alignment: AlignmentType.CENTER,
+                                                children: [
+                                                    new TextRun({
+                                                        text: data.truc_ban_cu_1,
+                                                        size: 28,
+                                                        bold: true,
+                                                        break:7
                                                     }),
                                                 ],
                                             }),

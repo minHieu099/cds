@@ -573,6 +573,10 @@ let renderThongquaGAHL = (data) => {
                         spacing: spaCing
                     }),
                     new Paragraph({
+                        children: [new PageBreak()],
+                    })
+                    ,
+                    new Paragraph({
                         alignment: AlignmentType.LEFT,
                         children: [
                             new TextRun({
