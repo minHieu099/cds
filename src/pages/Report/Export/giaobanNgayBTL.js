@@ -389,6 +389,17 @@ let renderGbnBTL = (data) => {
                                                     }),
                                                 ],
                                             }),
+                                            new Paragraph({
+                                                alignment: AlignmentType.CENTER,
+                                                children: [
+                                                    new TextRun({
+                                                        text: data.truc_CH_TT,
+                                                        size: 28,
+                                                        break:7,
+                                                        bold: true
+                                                    }),
+                                                ],
+                                            }),
                                         ],
                                     }),
                                 ],
