@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Table } from 'antd';
 import { EditOutlined, DeleteOutlined, EyeOutlined, FileTextOutlined } from '@ant-design/icons';
 
-const HandOverReportTable = ({ reportInfo, handleDetail, handleExport,handleEdit }) => {
+const HandOverReportTable = ({ reportInfo, handleDetail, handleExport,handleEdit,handleDelete }) => {
   const columns = [
     {
       title: 'Thời gian',
@@ -33,7 +33,9 @@ const HandOverReportTable = ({ reportInfo, handleDetail, handleExport,handleEdit
             <EyeOutlined />
           </Button>
           <Button icon={<EditOutlined />} type="link" onClick={() => handleEdit(record)} className="icon-items"/>
-          <Button icon={<DeleteOutlined />} className="icon-items"/>
+          <Button icon={<DeleteOutlined />}  type="link" 
+          onClick={() => handleDelete(record)} 
+          className="icon-items"/>
           <Button icon={<FileTextOutlined />} type="link" onClick={() => handleExport(record)} className="icon-items" />
         </span>
       ),

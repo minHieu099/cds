@@ -94,10 +94,10 @@ const HandOverReport = () => {
         setListGiaoban([...listGiaoban, values]);
         values.thoigian = values.thoigian.format("YYYY-MM-DD");
         formEdit.resetFields();
-        values["id"]=selectedRow.id;
-        const data = convertToB(values)
+        values["id"] = selectedRow.id;
+        const data = convertToB(values);
         const token = localStorage.getItem("access_token");
-        console.log(data)
+        console.log(data);
         const response = await axios.put(
           "http://192.168.3.100:20000/giaobanngay/update",
           data,
@@ -116,7 +116,26 @@ const HandOverReport = () => {
       alert("Có lỗi khi thêm dữ liệu");
     }
   };
+  const handleDeleteFormOke = async (record) => {
+    try {
+      const token = localStorage.getItem("access_token");
+      const response = await axios.delete(
+        `http://192.168.3.100:20000/giaobanngay/${record?.id}`,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+      if (response.status === 200) {
+        setListGiaoban(listGiaoban.filter(item => item.id !== record.id));
+        alert("Xóa dữ liệu thành công");
+      } else {
+        alert("Có lỗi khi xóa dữ liệu");
+      }
 
+    } catch (error) {
+      console.log(error);
+    }
+  };
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
@@ -168,6 +187,7 @@ const HandOverReport = () => {
         handleDetail={handleDetail}
         handleExport={handleExport}
         handleEdit={showEditModal}
+        handleDelete={handleDeleteFormOke}
       />
       <EditHandOverReportModal
         selectedRow={selectedRow}
