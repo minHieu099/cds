@@ -6,6 +6,7 @@ import {
   EyeOutlined,
   FileTextOutlined,
 } from "@ant-design/icons";
+import "./style.scss"
 
 const ShiftHandOverReportTable = ({
   reportInfo,
