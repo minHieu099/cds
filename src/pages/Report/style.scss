@@ -1,0 +1,33 @@
+.red {
+  color: red;
+}
+// .test{
+//   background-color: aquamarine;
+// }
+.icon-items{
+  margin: 0 1px;
+}
+.shift-table__wrapped {
+  height: 100%;
+}
+.ant-modal-content{
+  .ant-modal-body{
+    .ant-row{
+      display: block;
+      .ant-form-item-label{
+        text-align: start;
+      }
+    }
+    .ant-form-item{
+      margin-bottom: 18px;
+    }
+  }
+}
+.site-layout {
+  background: #fff;
+
+  &__content {
+    width: 100%;
+  }
+}
+
